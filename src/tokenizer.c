@@ -3,9 +3,14 @@
 #include "tokenizer.h"
 #include "history.h"
 
+//returns 1 if c is a white space
 int space_char(char c)
 {
-
+  if(c == " " || c == "\t")
+    {
+      return 1;
+    }
+  return 0;
 }
 
 int non_space_char(char c)
