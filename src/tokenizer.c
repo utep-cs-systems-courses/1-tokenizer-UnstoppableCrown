@@ -24,15 +24,15 @@ int non_space_char(char c)
 //returns a pointer to the first character of the next word 
 char *word_start(char *str)
 {
-  for(int i = 0; *(str +1) != '\0'; i++)
+  while(space_char(*str))
     {
-      if(non_space_char(*str))
-	{
-	  return &*str;
-	}
-      *str = *(str + i);
+      str += 1;
     }
-      return 0;
+  if(non_space_char(str))
+    {
+      return str;
+    }
+  return 0;
 }
 
 char *word_terminator(char *word)
