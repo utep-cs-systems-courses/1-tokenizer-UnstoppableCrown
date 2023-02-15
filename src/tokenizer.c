@@ -24,12 +24,16 @@ int non_space_char(char c)
 //returns a pointer to the first character of the next word 
 char *word_start(char *str)
 {
+  //printf("I start\n");
   while(space_char(*str))
     {
+      //  printf("i get to here\n");
       str += 1;
     }
-  if(non_space_char(str))
+  // printf("i get out of the loop\n");
+  if(non_space_char(*str))
     {
+      // printf(str);
       return str;
     }
   return 0;
