@@ -42,11 +42,34 @@ char *word_start(char *str)
 char *word_terminator(char *word)
 {
 
+  while(non_space_char(*word))
+    {
+      word += 1;
+    }
+  
+  if(space_char(*word))
+    {
+      return word;
+    }
+  return 0;
 }
 
 int count_words(char *str)
 {
-
+  int escape = 0;
+  int count = 0;
+  while(*str != 0 && escape < 30)
+    {
+      *str = *word_start(str);
+      if(str != 0)
+	{
+	  count += 1;
+	  *str = *word_terminator(str);
+	}
+      escape += 1;
+      printf("i ran\n");
+    }
+  return count;
 }
 
 char *copy_str(char *inStr, short len)
