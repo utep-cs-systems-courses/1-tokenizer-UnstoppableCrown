@@ -14,9 +14,12 @@ int main()
   //printf("after word_terminator");
   //count_words(line);
   //printf("there are: ");
-  int c = count_words(line);
-  printf("there are %d",c);
-  printf(" words\n");
+  //int c = count_words(line);
+  //printf("there are %d",c);
+  //printf(" words\n");
+  char *out = copy_str(line, 5);
+  printf(out);
+
   puts(line);
  done:
   return 0;
