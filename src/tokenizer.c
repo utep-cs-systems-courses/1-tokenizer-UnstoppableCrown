@@ -15,7 +15,7 @@ int space_char(char c)
 //returns 1 if c is a non white space, non zero character
 int non_space_char(char c)
 {
-  if(space_char(c) == 1 || c == '0')
+  if(space_char(c) == 1 || c == '\0')
     {
       return 0;
     }
@@ -58,17 +58,20 @@ int count_words(char *str)
 {
   int escape = 0;
   int count = 0;
-  while(*str != 0 && escape < 30)
+  //printf("%d\n", count);
+  while(str)
     {
-      *str = *word_start(str);
-      if(str != 0)
+      str = word_start(str);
+      if(str)
 	{
 	  count += 1;
-	  *str = *word_terminator(str);
+	  str = word_terminator(str);
+	  //printf("count is at: %d\n", count);
+	  //printf(&(*str));
+	  
 	}
-      escape += 1;
-      printf("i ran\n");
     }
+  
   return count;
 }
 
